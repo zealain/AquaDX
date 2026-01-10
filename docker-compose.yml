@@ -3,8 +3,8 @@ services:
     build: .
     image: hykilpikonna/aquadx:latest
     ports:
-      - "80:80"
-      - "8443:8443"
+      - "5170:80"
+      - "5171:8443"
       - "22345:22345"
     restart: on-failure:3
     environment:
@@ -27,7 +27,5 @@ services:
     ports:
       - "${AQUADX_DB_PORT:-127.0.0.1:3369}:3306"
     volumes:
-      - "${AQUADX_DB_DATA:-mariadb_data}:/var/lib/mysql"
+      - /opt/AquaDX/data/db:/var/lib/mysql"
 
-volumes:
-  mariadb_data:

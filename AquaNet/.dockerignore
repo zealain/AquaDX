@@ -1,0 +1,7 @@
+Dockerfile*
+.dockerignore
+.editorconfig
+.gitignore
+nginx.conf.example
+README.md
+
