@@ -27,5 +27,13 @@ services:
     ports:
       - "${AQUADX_DB_PORT:-127.0.0.1:3369}:3306"
     volumes:
-      - /opt/AquaDX/data/db:/var/lib/mysql"
+      - "${AQUADX_DB_DATA:-mariadb_data}:/var/lib/mysql"
+
+volumes:
+  mariadb_data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./db
 
