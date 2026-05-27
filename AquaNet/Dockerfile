@@ -1,9 +1,10 @@
 FROM oven/bun:1 AS base
 
-RUN chown bun:bun /home/bun/app
+COPY . .
+
+RUN chown -R bun:bun /home/bun/app
 USER bun
 
-COPY . .
 RUN bun install
 RUN bunx --bun vite build
 
